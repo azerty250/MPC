@@ -18,9 +18,15 @@ X = Polyhedron(H,h);
 U = Polyhedron(G,g);
 
 x0 = [3;0];
-
+%% Q and R initial
 Q = 10*eye(2);
 R = 1;
+
+%% Q and R test
+Q = 10*eye(2);
+R = 5;
+
+%%
 N = 10;
 [X_lqr O_inf] = inv_set_LQR(X,U,A,B,N,Q,R);
 
@@ -71,14 +77,14 @@ t = [A;zeros(2*(N-1),2)];
 
 %code de jon pour cette partie, permet de separer la vitesse, position et
 %commande --> aucune idée pourquoi
-time = 1;
+i = 1;
 xopt = x0;
 uopt = [];
-while norm(xopt(:,end)) > 0.0001
+while i < 30
     [zopt, fval, flag] = quadprog(H, h, G, g, T, t*xopt(:,end));
     xopt(:,end+1) = [zopt(1);zopt(2)];
     uopt(end+1) = [zopt(length(x0)*N+1)];
-    time = time+1;
+    i = i+1;
 end
 
 plot(0:size(xopt,2)-1,xopt(1,:));
