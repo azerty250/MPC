@@ -19,8 +19,8 @@ U = Polyhedron(G,g);
 
 x0 = [3;0];
 %% Q and R initial
-Q = 100*eye(2);
-R = 1;
+Q = 10*eye(2);
+R = 10;
 
 % %% Q and R test
 % Q = 10*eye(2);
@@ -102,7 +102,7 @@ ylabel('Computed value');
 set(gcf,'Units','Inches');
 pos = get(gcf,'Position');
 set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
-print(gcf,'4_1_pos','-dpdf','-r0')
+print(gcf,'4_1_pos_R10','-dpdf','-r0')
 
 figure   
 plot(0:size(x_plot,2)-1,x_plot(2,:));
@@ -120,7 +120,7 @@ clear('set');
 set(gcf,'Units','Inches');
 pos = get(gcf,'Position');
 set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
-print(gcf,'4_1_vel','-dpdf','-r0')
+print(gcf,'4_1_vel_R10','-dpdf','-r0')
 
 figure
 plot(0:size(uopt,2)-1,uopt(:));
@@ -137,7 +137,7 @@ ylabel('Computed value');
 set(gcf,'Units','Inches');
 pos = get(gcf,'Position');
 set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
-print(gcf,'4_1_input','-dpdf','-r0')
+print(gcf,'4_1_input_R10','-dpdf','-r0')
 
 
 

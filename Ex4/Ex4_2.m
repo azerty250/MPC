@@ -75,7 +75,7 @@ while i < 30
 end
 
 %%
-
+figure
 plot(0:size(x_plot,2)-1,x_plot(1,:));
 hold
 plot(0:size(x_plot,2)-1, 5*ones(size(x_plot,2),1), 'r');
@@ -86,8 +86,13 @@ legend('Position','Constraints');
 title('Plot of the position');
 xlabel('Time (step)');
 ylabel('Computed value');
-figure 
-    
+
+set(gcf,'Units','Inches');
+pos = get(gcf,'Position');
+set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
+print(gcf,'4_2_pos','-dpdf','-r0')
+
+figure   
 plot(0:size(x_plot,2)-1,x_plot(2,:));
 hold
 plot(0:size(x_plot,2)-1, 0.2*ones(size(x_plot,2),1), 'r');
@@ -98,8 +103,14 @@ legend('Speed','Constraints');
 title('Plot of the speed');
 xlabel('Time (step)');
 ylabel('Computed value');
-figure
 
+clear('set');
+set(gcf,'Units','Inches');
+pos = get(gcf,'Position');
+set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
+print(gcf,'4_2_vel','-dpdf','-r0')
+
+figure
 plot(0:size(uopt,2)-1,uopt(:));
 hold
 plot(0:size(x_plot,2)-1, 1.75*ones(size(x_plot,2),1), 'r');
@@ -110,3 +121,8 @@ legend('Position','Constraints');
 title('Plot of the input');
 xlabel('Time (step)');
 ylabel('Computed value');
+
+set(gcf,'Units','Inches');
+pos = get(gcf,'Position');
+set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
+print(gcf,'4_2_input','-dpdf','-r0')
