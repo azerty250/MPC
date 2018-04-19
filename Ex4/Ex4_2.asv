@@ -78,10 +78,7 @@ end
 
 plot(0:size(x_plot,2)-1,x_plot(1,:));
 hold
-plot(0:size(x_plot,2)-1, 5*ones(size(x_plot,2),1), 'r');
-plot(0:size(x_plot,2)-1, -5*ones(size(x_plot,2),1), 'r');
-xlim([0 25]);
-ylim([-5.25 5.25]);
+plot(0:size(x_plot,2)-1, 5*ones(size(x_plot,2)-1));
 legend('Position','Constraints');
 title('Plot of the position');
 xlabel('Time (step)');
@@ -89,24 +86,15 @@ ylabel('Computed value');
 figure 
     
 plot(0:size(x_plot,2)-1,x_plot(2,:));
-hold
-plot(0:size(x_plot,2)-1, 0.2*ones(size(x_plot,2),1), 'r');
-plot(0:size(x_plot,2)-1, -0.2*ones(size(x_plot,2),1), 'r');
-xlim([0 25]);
-ylim([-0.25 0.25]);
-legend('Speed','Constraints');
+legend('Speed');
 title('Plot of the speed');
 xlabel('Time (step)');
 ylabel('Computed value');
 figure
 
 plot(0:size(uopt,2)-1,uopt(:));
-hold
-plot(0:size(x_plot,2)-1, 1.75*ones(size(x_plot,2),1), 'r');
-plot(0:size(x_plot,2)-1, -1.75*ones(size(x_plot,2),1), 'r');
-xlim([0 25]);
-ylim([-2 2]);
-legend('Position','Constraints');
-title('Plot of the input');
+tile('Plot of the input');
 xlabel('Time (step)');
 ylabel('Computed value');
+legend('Input');
+
