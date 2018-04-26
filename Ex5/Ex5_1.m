@@ -4,9 +4,14 @@ yalmip('clear')
 
 clc;
 
-%%
+%% Init
 A = [0.7115 -0.4345; 0.4345 0.8853];
 B = [0.2173; 0.0573];
+C = [0 1];
+
+Bd = 0;
+Cd = 1;
+
 N = 10;
 
 x0 = [3;0];
@@ -19,6 +24,16 @@ R = 1;
 %Constraints on u
 G = [1; -1];
 g = [3;3];
+
+%% Estimation
+
+i = 1;
+
+%x_est(i+1) = A*x_est(i) + Bd*d_est(i) + B*u(i)
+
+
+%%
+% Define constraints and objective
 
 % Define optimization variables
 x = sdpvar(2,N,'full');
@@ -38,8 +53,7 @@ Xf = sys.LQRSet();
 Ff = Xf.A;
 ff = Xf.b;
 
-%%
-% Define constraints and objective
+
 con = [];
 obj = 0;
 for i = 1:N-1
