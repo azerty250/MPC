@@ -9,27 +9,31 @@ A = [0.7115 -0.4345; 0.4345 0.8853];
 B = [0.2173; 0.0573];
 C = [0 1];
 
-Bd = 0;
+Bd = zeros(2,1);
 Cd = 1;
 
-N = 10;
-
-x0 = [3;0];
-
-Q = 100*eye(2); %cost we want
-R = 1;
-
-%No constraints on x
+x0_hat = [3;0];
 
 %Constraints on u
 G = [1; -1];
 g = [3;3];
 
+
 %% Estimation
 
-i = 1;
+F = [0.3 0.4 0.5];
 
-%x_est(i+1) = A*x_est(i) + Bd*d_est(i) + B*u(i)
+u = 0;
+
+A_hat = [A Bd ; zeros(1,2) 1];
+B_hat = [C Cd];
+
+L = place(A_hat', B_hat', F);
+
+for i=1:50
+
+    [x_hat(i+1) ; d_hat(i+1)] = A_hat * [x_hat(i) ; d_hat(i+1)] + [B;0]*u + L*(C*x_hat(i) + Cd*d_hat(i) - C*x_hat(i) - d_hat(i));
+end
 
 
 %%
