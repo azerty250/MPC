@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 close all;
 clear all;
 yalmip('clear')
@@ -38,7 +37,7 @@ out = [x_hat;d_hat];
 
 for i = 1:100
     y(i) = C*x_hat+Cd*d;
-    out(:,i+1) = A_hat'*out(:,i) + [B;0]*u + L*(C*x_hat + Cd*d_hat - y(i)) 
+    out(:,i+1) = A_hat'*out(:,i) + [B;0]*u + L*(C*x_hat + Cd*d_hat - y(i)); 
     x_hat = out(1:2,i+1);
     d_hat = out(end,i+1);
 end
