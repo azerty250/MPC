@@ -27,27 +27,30 @@ g = [3;3];
 
 A_hat = [A Bd; zeros(1,2) 1]';
 B_hat = [C Cd]';
-F = [0.95,0.96,0.97];
+F = [0.6,0.7,0.8];
 
-L = place(A_hat,B_hat,F)';
+L = -place(A_hat,B_hat,F)';
 
 x_hat = x0_hat;
 d_hat = d0_hat;
-out = [x_hat;d_hat];
+out_hat = [x_hat;d_hat];
+x = x0;
 
 for i = 1:100
-    y(i) = C*x_hat+Cd*d;
-    out(:,i+1) = A_hat'*out(:,i) + [B;0]*u + L*(C*x_hat + Cd*d_hat - y(i)); 
-    x_hat = out(1:2,i+1);
-    d_hat = out(end,i+1);
+    x(:,i+1) = A*x(:,i) + B*u;
+    y(i) = C*x(:,i)+Cd*d;
+    out_hat(:,i+1) = A_hat'*out_hat(:,i) + [B;0]*u + L*(C*x_hat + Cd*d_hat - y(i)); 
+    x_hat = out_hat(1:2,i+1);
+    d_hat = out_hat(end,i+1);
 end
 
 figure(1)
-plot(out(1,:),out(2,:))
+plot(out_hat(1,:),out_hat(2,:)),hold on
+plot(x(1,:),x(2,:)),hold off
 grid on
 
-figure(2)
-plot(out(3,:))
+figure(3)
+plot(out_hat(3,:))
 
 
 
@@ -148,7 +151,6 @@ ylabel('Computed value');
 set(gcf,'Units','Inches');
 pos = get(gcf,'Position');
 set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
-=======
 close all;
 clear all;
 yalmip('clear')
@@ -184,21 +186,21 @@ L = place(A_hat,B_hat,F)';
 
 x_hat = x0_hat;
 d_hat = d0_hat;
-out = [x_hat;d_hat];
+out_hat = [x_hat;d_hat];
 
 for i = 1:100
     y(i) = C*x_hat+Cd*d;
-    out(:,i+1) = A_hat'*out(:,i) + [B;0]*u + L*(C*x_hat + Cd*d_hat - y(i)) 
-    x_hat = out(1:2,i+1);
-    d_hat = out(end,i+1);
+    out_hat(:,i+1) = A_hat'*out_hat(:,i) + [B;0]*u + L*(C*x_hat + Cd*d_hat - y(i)) 
+    x_hat = out_hat(1:2,i+1);
+    d_hat = out_hat(end,i+1);
 end
 
 figure(1)
-plot(out(1,:),out(2,:))
+plot(out_hat(1,:),out_hat(2,:))
 grid on
 
 figure(2)
-plot(out(3,:))
+plot(out_hat(3,:))
 
 
 
@@ -299,5 +301,4 @@ ylabel('Computed value');
 set(gcf,'Units','Inches');
 pos = get(gcf,'Position');
 set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
->>>>>>> 5e36c65c93d8b6d4a4c913881eea5ad9e388c93b
 print(gcf,'4_2_input','-dpdf','-r0')
