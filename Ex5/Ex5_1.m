@@ -51,8 +51,8 @@ grid on
 
 legend('Estimated state','True state');
 title('Estimate converging to the true value');
-xlabel('Position');
-ylabel('Speed');
+xlabel('State first component');
+ylabel('State second component');
 
 set(gcf,'Units','Inches');
 pos = get(gcf,'Position');

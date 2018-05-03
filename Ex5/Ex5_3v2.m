@@ -17,7 +17,7 @@ d0 = 0.2;
 d0_hat = 0;
 u = 0;
 
-r = 1;
+r = 0.5;
 
 A_hat = [A Bd; zeros(1,2) 1]';
 B_hat = [C Cd]';
@@ -67,7 +67,7 @@ for i = 1:50
     ctrl_ss = optimizer(con_ss, obj_ss,ops, input, output);
 
     d = d_hat;
-    r = 1;
+    r = 0.5;
     input = [r,d];
 
     % Can now compute the optimal control input using
@@ -121,8 +121,8 @@ grid on
 
 legend('Estimated state','True state');
 title('Estimate converging to the true value');
-xlabel('Position');
-ylabel('Speed');
+xlabel('State first component');
+ylabel('State second component');
 
 set(gcf,'Units','Inches');
 pos = get(gcf,'Position');
