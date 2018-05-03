@@ -49,6 +49,16 @@ plot(out_hat(1,:),out_hat(2,:)),hold on
 plot(x(1,:),x(2,:)),hold off
 grid on
 
+legend('Estimated state','True state');
+title('Estimate converging to the true value');
+xlabel('Position');
+ylabel('Speed');
+
+set(gcf,'Units','Inches');
+pos = get(gcf,'Position');
+set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
+print(gcf,'converge','-dpdf','-r0')
+
 figure(3)
 plot(out_hat(3,:))
 
