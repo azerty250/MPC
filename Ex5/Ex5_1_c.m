@@ -53,7 +53,6 @@ figure(3)
 plot(out_hat(3,:))
 
 
-
 %%
 sys = LTISystem('A',A,'B',B);
 

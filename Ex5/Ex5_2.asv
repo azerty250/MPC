@@ -11,19 +11,25 @@ C = [0,1];
 Cd = 1;
 Bd = zeros(2,1);
 
+
 x0_hat = [3;0];
 x0 = [1;2];
 d = 0.2;
 d0_hat = 0;
 u = 0;
 
+N = 5;
+Q = eye(2);
+R = 1;
+
+u = 0;
+
+r = 1;
+
 %Constraints on u
 G = [1; -1];
 g = [3;3];
 
-% % Define optimization variables
-% x = sdpvar(2,N,'full');
-% u = sdpvar(1,N,'full');
 
 A_hat = [A Bd; zeros(1,2) 1]';
 B_hat = [C Cd]';
@@ -44,34 +50,58 @@ for i = 1:100
     d_hat = out_hat(end,i+1);
 end
 
-figure(1)
-plot(out_hat(1,:),out_hat(2,:)),hold on
-plot(x(1,:),x(2,:)),hold off
-grid on
 
-figure(3)
-plot(out_hat(3,:))
+%%
+sys = LTISystem('A',A,'B',B);
 
+sys.u.min = -3;
+sys.u.max =  3;
+
+sys.x.penalty = QuadFunction(Q);
+sys.u.penalty = QuadFunction(R);
+
+Qf = sys.LQRPenalty.weight();
+Xf = sys.LQRSet();
+
+Ff = Xf.A;
+ff = Xf.b;
 
 %% Compute steady state
 
+nu =1;
+nx =2;
+ny = 1;
 D = eye(2)-A;
 M = [D,-B;C,0];
+temp =  r-Cd;
 
-steady_state = M\[zeros(2,1);r];
+steady_state = M\[Bd*d_hat;temp*d_hat];
 
-xs = steady_state()
+xs = steady_state(1:2);
+us = steady_state(end);
+
+% Define optimization variables
+u = sdpvar(1,N,'Full
+x = sdpvar(repmat(nx,1,N+1),repmat(1,1,N+1));
+d = sdpvar(1);
 
 % Define constraints and objective
 con = [];
 obj = 0;
+
 for i = 1:N-1
     con = con + (G*u(:,i) <= g); % Input constraints
-    obj = obj + u(:,i).*u(:,i); % Cost function
+    con = con + (x{k+1} == A*x{k}+B*u{k}+Bd*d);
+
+    obj = obj +  u(:,i).*u(:,i); % Cost function
+    
 end
 
-con = con + (Ff*x(:,N) <= ff); % Terminal constraint
-obj = obj + x(:,N)'*Qf*x(:,N); % Terminal weight
+con = con +  (Ff*x(:,N) <= ff); % Terminal constraint
+obj = obj +  x(:,N)'*Qf*x(:,N); % Terminal weight
+
+
+parameters_in = {xs,r};
 
 ops = sdpsettings('solver','quadprog');
 % Compile the matrices
