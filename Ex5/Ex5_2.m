@@ -73,54 +73,42 @@ nx =2;
 ny = 1;
 D = eye(2)-A;
 M = [D,-B;C,0];
-temp =  r-Cd;
+temp =  r-Cd*d_hat;
 
-steady_state = M\[Bd*d_hat;temp*d_hat];
-
-xs = steady_state(1:2);
-us = steady_state(end);
-
-% Define optimization variables
-u = sdpvar(1,N,'full');
-x = sdpvar(2,N,'full');
-d = sdpvar(1);
+us = sdpvar(1,1,'full');
+xs = sdpvar(2,1,'full');
 r = sdpvar(1);
+d = sdpvar(1);
 
 % Define constraints and objective
 con = [];
 obj = 0;
 
-for i = 1:N-1
-    con = [con, (G*u(:,i) <= g)]; % Input constraints
-    %con = con + (x(:,i+1) == A*x(:,i)+B*u(:,i)+Bd*d0);
-    
-    con = [con
-    
-    obj = obj +  u(:,i).*u(:,i); % Cost function
-    
-end
+% = [con, (G*us(:,i) <= g)]; % Input constraints
+%con = [con, (xs(:,i+1) == A*xs(:,i)+B*us(:,i)+Bd*d)];  
+
+con = [con, xs == (A*xs+B*us)];
+con = [con, C*xs + d == r];
+con = [con, (-3<=us<=3)];
+
+obj = us.*us; % Cost function
 
 ops = sdpsettings('solver','quadprog');
 
 input = [r,d];
-output = [u,x];
+output = [xs;us];
 
 % Compile the matrices
 ctrl = optimizer(con, obj,ops, input, output);
+
+
+d = d_hat;
+r = 1;
+input = [r,d];
+
 % Can now compute the optimal control input using
-[uopt(1), isfeasible] = ctrl{x0,d0};
-% isfeasible == 1 if the problem was solved successfully
+steady = ctrl{input};
 
-x_plot = x0;
-i =1;
 
-while i < 30
-    
-    [uopt(i), isfeasible] = ctrl{x_plot(:,i),dopt(i)};
-
-    x_plot(:,i+1) = A*x_plot(:,i) + B*uopt(i) + Bd*dopt; 
-      
-    i = i + 1;
-end
-
+%% 
 
