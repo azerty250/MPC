@@ -84,26 +84,26 @@ us = steady_state(end);
 u = sdpvar(1,N,'full');
 x = sdpvar(2,N,'full');
 d = sdpvar(1);
+r = sdpvar(1);
 
 % Define constraints and objective
 con = [];
 obj = 0;
 
 for i = 1:N-1
-    con = con + (G*u(:,i) <= g); % Input constraints
-    con = con + (x(:,i+1) == A*x(:,i)+B*u(:,i)+Bd*d0);
-
+    con = [con, (G*u(:,i) <= g)]; % Input constraints
+    %con = con + (x(:,i+1) == A*x(:,i)+B*u(:,i)+Bd*d0);
+    
+    con = [con
+    
     obj = obj +  u(:,i).*u(:,i); % Cost function
     
 end
 
-%con = con +  (Ff*x(:,N) <= ff); % Terminal constraint
-%obj = obj +  x(:,N)'*Qf*x(:,N); % Terminal weight
-
 ops = sdpsettings('solver','quadprog');
 
-input = {x,d};
-output = {u};
+input = [r,d];
+output = [u,x];
 
 % Compile the matrices
 ctrl = optimizer(con, obj,ops, input, output);
