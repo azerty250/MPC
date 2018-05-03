@@ -12,16 +12,15 @@ Cd = 1;
 Bd = zeros(2,1);
 
 
-x0_hat = [3;0];
-x0 = [1;2];
-d0 = 0.2;
-d0_hat = 0;
-u = 0;
-
 N = 5;
 Q = eye(2);
 R = 1;
 
+
+x0_hat = [3;0];
+x0 = [1;2];
+d0 = 0.2;
+d0_hat = 0;
 u = 0;
 
 r = 1;
@@ -112,3 +111,59 @@ steady = ctrl{input};
 
 %% 
 
+N = 5;
+Q = eye(2);
+R = 1;
+
+
+    x(:,i+1) = A*x(:,i) + B*u;
+    y(i) = C*x(:,i)+Cd*d0;
+    out_hat(:,i+1) = A_hat'*out_hat(:,i) + [B;0]*u + L*(C*x_hat + Cd*d_hat - y(i)); 
+    x_hat = out_hat(1:2,i+1);
+    d_hat = out_hat(end,i+1);
+
+xs = steady(1:2);
+us = steady(end);
+
+P = dlyap(A,Q);
+
+% Define constraints and objective
+con = [];
+obj = 0;
+
+x = sdpvar(2,N,'full');
+u = sdpvar(1,N,'full');
+
+for i = 1:N-1
+    
+    con = [con, x(:,i+1)== A*x(:,i) + B*u(i)];
+   
+    obj = [obj, (x(:,i)-xs)'*Q*(x(:,i)-xs) + (u(i)-us)'*R*(u(i)-us)];
+
+end
+
+V = x(:,N)'*P*x(:,N);
+
+obj = [obj,  V];
+
+obj = []; % Terminal weight
+
+ops = sdpsettings('solver','quadprog');
+% Compile the matrices
+ctrl = optimizer(con, obj,ops, x(:,1), u(:,1));
+% Can now compute the optimal control input using
+[uopt(1), isfeasible] = ctrl{x0};
+% isfeasible == 1 if the problem was solved successfully
+
+x_plot = x0;
+i =1;
+
+
+while i < 30
+    
+    [uopt(i), isfeasible] = ctrl{x_plot(:,i)};
+
+    x_plot(:,i+1) = A*x_plot(:,i) + B*uopt(i); 
+      
+    i = i + 1;
+end
