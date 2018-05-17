@@ -9,7 +9,10 @@ function [x_next] = Euler(X,U,h,f)
 %
 
 % Euler integration
+    x_next = X + h*f(X,U);
 
-% x_next = ...
-   
-error('Remove this when you have implemented the function')
+  
+
+
+    
+    
