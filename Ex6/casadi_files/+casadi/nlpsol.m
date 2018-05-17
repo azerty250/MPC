@@ -10,7 +10,7 @@ function varargout = nlpsol(varargin)
     %
     %> NLPSOL(char name, char solver, Importer compiler, struct opts)
     %> NLPSOL(char name, char solver, NlpBuilder nl, struct opts)
-    %> NLPSOL(char name, char solver, struct:MX nlp, struct opts)
+    %> NLPSOL(char name, char solver, struct:MX nlp, struct     opts)
     %> NLPSOL(char name, char solver, char fname, struct opts)
     %------------------------------------------------------------------------
     %
