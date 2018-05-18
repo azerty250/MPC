@@ -5,7 +5,7 @@ clc;                                               % Clears the screen
 clear all;
 
 h=1.5;                                             % step size
-x = 0:h:3;                                         % Calculates upto y(3)
+x = 0:h:3;                                         % Calculates up to y(3)
 y = zeros(1,length(x)); 
 y(1) = 5;                                          % initial condition
 F_xy = @(t,r) 3.*exp(-t)-0.4*r;                    % change the function as you desire

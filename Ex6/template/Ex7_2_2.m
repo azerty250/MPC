@@ -5,8 +5,8 @@ Ex7_2_1 % Load your linearization routines
 %%% ---> Your code here
 
 % Maps from X,U => next state
-f_linear_algo = @(X,U) error('Implement me');  % Linearized system using casadi
-f_linear_fd   = @(X,U) error('Implement me');  % Linearized system using finite differences
+f_linear_algo = @(X,U) full(A_algorithmic(X0,U0))*(X-X0)+full(B_algorithmic(X0,U0))*(U-U0)+f(X0,U0);  % Linearized system using casadi
+f_linear_fd   = @(X,U) jac_x(X0,U0,f_discrete)*(X-X0)+jac_u(X0,U0,f_discrete)*(U-U0)+f(X0,U0);  % Linearized system using finite differences
 
 %%% ---> Your code here
 
@@ -24,7 +24,7 @@ sim_rk4.f = f_discrete;
 
 sims = {sim_algo, sim_fd, sim_rk4};
 
-t = 0:h:10; % Sample times
+t = 0:h:2; % Sample times
 X0 = [0;0.5]; % Initial state
 U0 = 0; % Initial input
 Uref = [0.5+0.5*sin(t);zeros(size(t))]; % Sample the input function at the sample period

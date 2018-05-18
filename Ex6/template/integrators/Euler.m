@@ -12,7 +12,7 @@ function [x_next] = Euler(X,U,h,f)
     x_next = X + h*f(X,U);
 
   
-
+end
 
     
     
