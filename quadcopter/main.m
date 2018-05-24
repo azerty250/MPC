@@ -4,13 +4,61 @@
 %    matrices sys.A, sys.B of the inner-loop discretized with sampling period sys.Ts
 %    outer controller optimizer instance
 load('quadData.mat')
-outerController = getOuterController(Ac, 'cplex');
+addpath('./cplex');
+outerController = getOuterController(Ac, 'sedumi');
 disp('Data successfully loaded')
 
 
 
 %% %%%%%%%%%%%%%% First MPC controller %%%%%%%%%%%%%%%%%%%
 
+N = 20; 
+T = 2;
+
+angleMax = deg2rad(10);
+vAngleMax = deg2rad(15);
+
+%Use for stage cost --> to tune
+Q = 10*eye(7); 
+R = eye(4);
+
+A1 = sys.A;
+B1 = sys.B;
+
+% Terminal controller
+[K1, P1] = dlqr(A1,B1,Q,R); K1 = -K1;
+
+x0 = [-1 deg2rad(10) deg2rad(-10) deg2rad(120) 0 0 0];
+
+x = sdpvar(7, N);
+u = sdpvar(4,N-1);
+constraints = [];
+
+for i = 1:N-1
+    % Dynamics
+    constraints = [constraints, x(:,i+1) == A1*x(:,i) + B1*u(:,i)];
+    % Input constraints
+    constraints = constraints + set(0 <= u(:,i) <= 1);    
+    % Cost
+    objective = objective + u(:,i)'*R*u(:,i);
+end
+
+for i = 2:N
+    %constraints on alpha, beta, alpha dot and beta dot
+    constraints = constraints + set(-angleMax <= x(2:3,i) <= angleMax);
+    constraints = constraints + set(-vAngleMax <= x(5:6,i) <= vAngleMax);
+    
+    %Objective
+    objective = objective + (x(:,i))'*Q*(x(:,i));
+
+end
+
+x(:,1) = x0;
+u(:,1) = [0 0 0 0];
+
+options = sdpsettings('solver','qpip');
+innerController = optimizer(constraints, objective, options, x(:,1), u(:,1));
+simQuad( sys, innerController, x0, T);
 
 pause
 
