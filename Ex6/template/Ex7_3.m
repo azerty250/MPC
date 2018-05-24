@@ -5,7 +5,7 @@ addpath('./plottingcode')
 car_dynamics
 
 %%% Choose your track
-track = generate_track('simple');
+%track = generate_track('simple');
 % track = generate_track('complex');
 
 %% Ex 3 MPC problem setup
@@ -27,9 +27,10 @@ speed = X(2,:);
 
 epsilon_speed = opti.variable(1,N+1); % slack variable for speed constraint
 
+
 % ---- objective ---------
 opti.minimize(...
-  -10*sum(X(2,:))  + ... % Max velocity
+  -10*sum(X(2,:))  + ...  % Max velocity
   0.1*U(1,:)*U(1,:)' + ... % Minimize accel
   10*U(2,:)*U(2,:)'   + ... % Minimize braking
   10000*(epsilon_speed(1,:)*epsilon_speed(1,:)' + sum(epsilon_speed))); % Soft constraints
@@ -41,7 +42,10 @@ for k=1:N % loop over control intervals
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%% WRITE YOUR DYNAMICS CONSTRAINT HERE
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  opti.subject_to(  );
+ 
+  opti.subject_to(...
+   1/track.kappa(X(2,:))   
+   );
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%% WRITE YOUR DYNAMICS CONSTRAINT HERE
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

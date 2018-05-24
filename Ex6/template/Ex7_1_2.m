@@ -6,7 +6,7 @@ car_dynamics
 
 addpath('./integrators')
 
-h = 0.1; % Set sample period
+h = 0.5; % Set sample period
 
 t = 0:h:10; % Sample times
 X0 = [0;0.5]; % Initial state
