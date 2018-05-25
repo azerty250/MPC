@@ -33,30 +33,30 @@ x0 = [-1 deg2rad(10) deg2rad(-10) deg2rad(120) 0 0 0];
 x = sdpvar(7, N);
 u = sdpvar(4,N-1);
 constraints = [];
+objective = 0;
 
 for i = 1:N-1
     % Dynamics
     constraints = [constraints, x(:,i+1) == A1*x(:,i) + B1*u(:,i)];
     % Input constraints
-    constraints = constraints + set(0 <= u(:,i) <= 1);    
+    constraints = constraints + (0 <= u(:,i) <= 1);    
     % Cost
     objective = objective + u(:,i)'*R*u(:,i);
 end
 
 for i = 2:N
     %constraints on alpha, beta, alpha dot and beta dot
-    constraints = constraints + set(-angleMax <= x(2:3,i) <= angleMax);
-    constraints = constraints + set(-vAngleMax <= x(5:6,i) <= vAngleMax);
+    constraints = constraints + (-angleMax <= x(2:3,i) <= angleMax);
+    constraints = constraints + (-vAngleMax <= x(5:6,i) <= vAngleMax);
     
     %Objective
     objective = objective + (x(:,i))'*Q*(x(:,i));
 
 end
 
-x(:,1) = x0;
-u(:,1) = [0 0 0 0];
+objective = objective + (x(:,N))'*P1*(x(:,N));
 
-options = sdpsettings('solver','qpip');
+options = sdpsettings('solver','sedumi');
 innerController = optimizer(constraints, objective, options, x(:,1), u(:,1));
 simQuad( sys, innerController, x0, T);
 
