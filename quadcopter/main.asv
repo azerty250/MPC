@@ -18,10 +18,10 @@ T = 2;
 angleMax = deg2rad(10);
 vAngleMax = deg2rad(15);
 
-%State cost --> yaw is less important and can take more time
+%Use for stage cost --> to tune
 Q = diag([10,10,10,1,0,0,0]);
 
-%Motor input cost --> all important
+%Motornput cost
 R = eye(4);
 
 A1 = sys.A;
