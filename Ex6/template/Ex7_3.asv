@@ -41,7 +41,7 @@ opti.minimize(...
 % ---- multiple shooting --------
 for k=1:N % loop over control intervals
 
-  opti.subject_to(speed <= 1/(1+track.kappa(pos)));
+  opti.subject_to(speed <= 1/(1+track.kappa(pos));
   
 end
 
