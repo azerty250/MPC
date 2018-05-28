@@ -12,8 +12,8 @@ disp('Data successfully loaded')
 
 %% %%%%%%%%%%%%%% First MPC controller %%%%%%%%%%%%%%%%%%%
 
-N = 20; 
-T = 2;
+N = 10; 
+T = 6;
 
 angleMax = deg2rad(10);
 vAngleMax = deg2rad(15);
@@ -31,7 +31,7 @@ B1 = sys.B;
 [K1, P1] = dlqr(A1,B1,Q,R); 
 K1 = -K1;
 
-x0 = [-1 deg2rad(10) deg2rad(-10) deg2rad(120) 0 0 0];
+x0 = [-1 deg2rad(10) deg2rad(-10) deg2rad(120) 0 0 0]';
 
 x1 = sdpvar(7, N); %[zdot alpha beta gamma alphadot betadot gammadot]
 u1 = sdpvar(4,N-1); %[mot1 mot2 mot3 mot4]
@@ -40,9 +40,9 @@ objective = 0;
 
 for i = 1:N-1
     % Dynamics
-    constraints = [constraints, x1(:,i+1) == A1*x1(:,i) + B1*u1(:,i)];
+    constraints = constraints + (x1(:,i+1) == A1*x1(:,i) + B1*u1(:,i));
     % Input constraints
-    constraints = constraints + (0-us <= u1(:,i) <= 1-us);    
+    constraints = constraints + (zeros(4,1)-us <= u1(:,i) <= ones(4,1)-us);    
     % Cost
     objective = objective + u1(:,i)'*R*u1(:,i);
 end
