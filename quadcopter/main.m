@@ -12,8 +12,8 @@ disp('Data successfully loaded')
 
 %% %%%%%%%%%%%%%% First MPC controller %%%%%%%%%%%%%%%%%%%
 
-N = 10; 
-T = 6;
+N = 20; 
+T = 2;
 
 angleMax = deg2rad(10);
 vAngleMax = deg2rad(15);
