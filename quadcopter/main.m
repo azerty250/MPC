@@ -71,11 +71,44 @@ fprintf('PART II - reference tracking...\n')
 C = [eye(4),zeros(4,3)];
 
 %define a reference of 4 [zdot alpha beta gamma]'
-r1 = [0 1 1 1]';
+ref = [0.01, 0.002, 0.003, 0.002]';
 
 %solve C*xr = r1
-xr = C\r1;
+xr = C\ref;
 ur = B1\(xr - A1*xr);
+
+x1 = sdpvar(7, N); %[zdot alpha beta gamma alphadot betadot gammadot]
+u1 = sdpvar(4,N-1); %[mot1 mot2 mot3 mot4]
+r1 = sdpvar(4,1); %define a reference of 4 [zdot alpha beta gamma]'
+
+constraints = [];
+objective = 0;
+
+for i = 1:N-1
+    % Dynamics
+    constraints = constraints + ((x1(:,i+1)-xr) == A1*(x1(:,i)-xr) + B1*(u1(:,i)-ur));
+    % Input constraints
+    constraints = constraints + (zeros(4,1)-us <= (u1(:,i)-ur) <= ones(4,1)-us);    
+    % Cost
+    objective = objective + (u1(:,i)-ur)'*R*(u1(:,i)-ur);
+end
+
+for i = 2:N
+    %constraints on alpha, beta, alpha dot and beta dot
+    constraints = constraints + (-angleMax <=  (x1(2:3,i) - xr(2:3)) <= angleMax);
+    constraints = constraints + (-vAngleMax <= (x1(5:6,i) - xr(5:6)) <= vAngleMax);
+    
+    %Objective
+    objective = objective + ((x1(:,i)-xr)'*Q*(x1(:,i)-xr));
+
+end
+
+objective = objective + ((x1(:,i)-xr)'*P1*(x1(:,i)-xr));
+
+options = sdpsettings('solver','sedumi');
+innerController = optimizer(constraints, objective, options, [x1(:,1);r1], u1(:,1));
+simQuad(sys,innerController,x0,T,ref);
+
 
 pause
 
