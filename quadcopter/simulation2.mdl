@@ -1,10 +1,6 @@
 Model {
   Name			  "simulation2"
-<<<<<<< .merge_file_a24308
   Version		  8.9
-=======
-  Version		  9.0
->>>>>>> .merge_file_a10056
   SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
