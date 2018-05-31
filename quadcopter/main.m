@@ -84,7 +84,7 @@ C1 = [eye(4),zeros(4,3)];
 Q1 = diag([100,500,500,1]);
 
 %define a reference of 4 [zdot alpha beta gamma]'
-ref = [0.5, 0.002, 0.003, 0.002]';
+ref = [0.5, 0.02, 0.03, 0.02]';
 
 [K1, P1] = dlqr(A1,B1,C1'*Q1*C1,R1); 
 K1 = -K1;
@@ -138,6 +138,39 @@ pause
 
 %% Disturbance estimation
 %estimator
+
+N = 20; 
+T = 8;
+
+angleMax = deg2rad(10);
+vAngleMax = deg2rad(15);
+
+R1 = eye(4);
+
+A1 = sys.A;
+B1 = sys.B;
+
+C1 = [eye(4),zeros(4,3)];
+Q1 = diag([100,500,500,1]);
+
+%define a reference of 4 [zdot alpha beta gamma]'
+ref = [0.5, 0.002, 0.003, 0.002]';
+
+[K1, P1] = dlqr(A1,B1,C1'*Q1*C1,R1); 
+K1 = -K1;
+M = [eye(4); zeros(3,4)];
+
+x0 = [-1 deg2rad(10) deg2rad(-10) deg2rad(120) 0 0 0]';
+
+% full state estimator for the augmented system
+A_hat = [A1,eye(7);zeros(7,7),eye(7)]';
+B_hat = [B1;zeros(7,4)]';
+C_hat = [eye(7),zeros(7,7)];    
+
+F = linespace(0.98,0.94,14);
+
+L = -place(A_hat,B_hat,F)';
+
 
 
 %% Offset free MPC
