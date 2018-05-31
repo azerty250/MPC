@@ -6,7 +6,7 @@ car_dynamics
 
 addpath('./integrators')
 
-h = 0.5; % Set sample period
+h = 0.05; % Set sample period
 
 t = 0:h:10; % Sample times
 X0 = [0;0.5]; % Initial state
@@ -25,7 +25,7 @@ end
 %%% Simulate using RK4
 
 rk4.name = 'RK4';
-rk4.f_discrete = @(X,U) RK4(X,U,h,f);
+rk4.f_discrete = @(X,U) RK4_1(X,U,h,f);
 rk4.X = X0;
 % --->>> Code here
 for k=1:length(t)-1
@@ -53,5 +53,5 @@ end
 addpath('./plottingcode')
 
 plotSims(t, {ode, rk4, eur});
-
+saveas(gcf, 'ex1_comparison', 'png')
 

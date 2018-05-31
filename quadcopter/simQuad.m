@@ -26,7 +26,7 @@ B = sys.B;
 if(exist('filter','var') && ~isempty(filter) && (~exist('d','var') || isempty(d)))
     d_mean = repmat([-0.1;0;0;0;6e-4;6e-4;3e-4],1,Ns);
     d_rand = [zeros(4,Ns);1e-2*diag([1;1;20])*(rand(3,Ns)-0.5)];
-    d = 0.5*d_mean + 0.5*d_rand;
+    d = 1*d_mean + 1*d_rand;
 end
 
 

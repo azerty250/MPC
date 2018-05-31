@@ -4,6 +4,7 @@
 %    matrices sys.A, sys.B of the inner-loop discretized with sampling period sys.Ts
 %    outer controller optimizer instance
 addpath('../Ex6/casadi_files')
+addpath('./toolboxes/yalmip')
 load('quadData.mat')
 addpath('./cplex');
 outerController = getOuterController(Ac, 'quadprog');
@@ -152,7 +153,7 @@ A1 = sys.A;
 B1 = sys.B;
 
 C1 = [eye(4),zeros(4,3)];
-Q1 = diag([1e0,1e-3,1e-3,1e-2]);
+Q1 = diag([1e-1,1e1,1e1,1e-1]);
 
 %define a reference of 4 [zdot alpha beta gamma]'
 ref = [0.5, 0.05, 0.05, 0.0]';
@@ -168,12 +169,14 @@ A_hat = [A1,eye(7);zeros(7,7),eye(7)];
 B_hat = [B1;zeros(7,4)];
 C_hat = [eye(7),zeros(7,7)];    
 
-F = linspace(0.99,0.94,14);
+F = linspace(0.99,0.86,14);
 
-L = -place(A_hat',C_hat',F)';
+L = place(A_hat',C_hat',F)';
 
 filter.Af = A_hat - L*C_hat;
 filter.Bf = [B_hat, L];
+
+eig(filter.Af)
 
 % Offset free MPC
 fprintf('PART III - OFFSET FREE / Disturbance rejection...\n')
@@ -200,8 +203,10 @@ for i = 2:N
     %constraints on alpha, beta, alpha dot and beta dot
     
     %Modify constraints values (matrix Q)
-%     constraints = constraints + (-angleMax <=  (x1(2:3,i)) <= angleMax);
+    constraints = constraints + (-1 <= x1(1,i) <= 1);
+    constraints = constraints + (-angleMax <=  (x1(2:3,i)) <= angleMax);
     constraints = constraints + (-vAngleMax <= (x1(5:6,i)) <= vAngleMax);
+    constraints = constraints + (-deg2rad(60) <= (x1(7,i)) <= deg2rad(60));
 
     %Objective
     objective = objective + (C1*x1(:,i) - r1)'*Q1*(C1*x1(:,i) - r1);
@@ -218,6 +223,18 @@ innerController = optimizer(constraints, objective, options, [x1(:,1);r1;d1(:,1)
 simQuad(sys,innerController,x0,T,ref,filter);
 
 pause
+
+
+%% Slow changing reference
+
+ref = zeros(4,floor(T/sys.Ts)+1);
+
+slope = 0.001;
+for i=1:length(ref)
+    ref(:,i) = ref(:,i)+i*slope;
+end
+simQuad(sys,innerController,x0,T,ref,filter);
+
 
 %% Final simulation
 fprintf('Running the FINAL NL model simulation...\n')

@@ -2,11 +2,13 @@ clear; close all;clc;
 addpath('./../casadi_files')
 import casadi.*
 addpath('./plottingcode')
+addpath('./integrators')
+
 
 car_dynamics
 
 %%% Choose your track
-track = generate_track('simple');
+track = generate_track('complex');
 % track = generate_track('complex');
 
 %% Ex 3 MPC problem setup
@@ -27,6 +29,8 @@ v0   = X0(2);
 pos   = X(1,:);
 speed = X(2,:);
 
+% X(:,1) = X0;
+
 epsilon_speed = opti.variable(1,N+1); % slack variable for speed constraint
 
 
@@ -37,20 +41,31 @@ opti.minimize(...
   10*U(2,:)*U(2,:)'   + ... % Minimize braking
   10000*(epsilon_speed(1,:)*epsilon_speed(1,:)' + sum(epsilon_speed))); % Soft constraints
 
+% ----- brake minimization -----
+% opti.minimize(...
+%   -1e-3*sum(X(2,:))  + ...  % Max velocity
+%   1e-1*U(1,:)*U(1,:)' + ... % Minimize accel
+%   1e4*U(2,:)*U(2,:)'   + ... % Minimize braking
+%   1e5*(epsilon_speed(1,:)*epsilon_speed(1,:)' + sum(epsilon_speed))); % Soft constraints
 
 % ---- multiple shooting --------
 for k=1:N % loop over control intervals
-
-  opti.subject_to(speed <= 1/(1+track.kappa(pos)));
-  
+   % Runge-Kutta 4 integration
+   
+   x_next = RK4(X(:,k),U(:,k),h,f);
+   opti.subject_to(X(:,k+1)==x_next); % close the gaps
+   
 end
 
 % ---- path constraints -----------
 
 limit = track.maxspeed;
 opti.subject_to(speed  <=   limit(pos) + epsilon_speed); % track speed limit
-opti.subject_to(0 <= U <= 1);  % control is limited
 
+for k=1:N
+    opti.subject_to(0 <= U(1,k) <= 1);  % control is limited
+    opti.subject_to(0 <= U(2,k) <= 1);  % control is limited
+end
 % ---- boundary conditions --------
 opti.subject_to(pos(1)==pos0);   % use initial position
 opti.subject_to(speed(1)==v0); % use initial speed
@@ -79,6 +94,7 @@ stairs(1:N, sol.value(U(1,:)),'linewidth',2);
 stairs(1:N,-sol.value(U(2,:)),'linewidth',2);
 legend('speed limit','pos','speed','throttle','brake','Location','northwest')
 
+saveas(figure(1),'ex3_1_NMPC_complex','png');
 %% closed loop simulation
 
 sim.x = [0;0]; % Start at position zero with zero speed
@@ -109,8 +125,8 @@ while sim.x(1,end) < 1  %% Take one loop around the track
   %   pause(0.05); drawnow
   
   % warm start the next iteration
-  opti.set_initial(U, sol.value(U));
-  opti.set_initial(X, sol.value(X));
+  opti.set_initial(U,sol.value(U));
+  opti.set_initial(X,sol.value(X));
   opti.set_initial(epsilon_speed, sol.value(epsilon_speed));
 end
 
@@ -127,3 +143,5 @@ legend('speed limit','pos','speed','throttle','brake','Location','northwest')
 title('Closed loop trajectory')
 
 xlabel('Time (s)')
+
+saveas(gcf, 'ex3_1_NLresults_complex','png')
