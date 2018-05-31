@@ -1,6 +1,10 @@
 Model {
   Name			  "simulation2"
+<<<<<<< .merge_file_a24308
   Version		  8.9
+=======
+  Version		  9.0
+>>>>>>> .merge_file_a10056
   SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
@@ -36,7 +40,11 @@ Model {
       UnitExpr		      "inherit"
     }
     ParameterArgumentNames  ""
+<<<<<<< .merge_file_a24308
     ComputedModelVersion    "1.193"
+=======
+    ComputedModelVersion    "1.194"
+>>>>>>> .merge_file_a10056
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -46,6 +54,28 @@ Model {
     HasTerminateEvent	    0
     IsExportFunctionModel   0
     NumParameterArguments   0
+<<<<<<< .merge_file_a24308
+=======
+    NumExternalFileReferences 3
+    ExternalFileReference {
+      Reference		      "simulink/Discrete/First-Order\nHold"
+      Path		      "simulation2/First-Order Hold"
+      SID		      "103"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "simulation2/eight form /Ramp"
+      SID		      "241"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "simulation2/reference 1/Ramp"
+      SID		      "157"
+      Type		      "LIBRARY_BLOCK"
+    }
+>>>>>>> .merge_file_a10056
     OrderedModelArguments   1
   }
   LogicAnalyzerGraphicalSettings ""
@@ -53,6 +83,10 @@ Model {
   LogicAnalyzerSignalOrdering ""
   DiagnosticSuppressor	  "on"
   SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 8 0"
+<<<<<<< .merge_file_a24308
+=======
+  CustomCodeFunctionData  ""
+>>>>>>> .merge_file_a10056
   SLCCPlugin		  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -84,7 +118,11 @@ Model {
 	  DockPosition		  "Left"
 	  Width			  [50]
 	  Height		  [50]
+<<<<<<< .merge_file_a24308
 	  Filter		  [8]
+=======
+	  Filter		  [9]
+>>>>>>> .merge_file_a10056
 	}
 	Object {
 	  $PropName		  "ExplorerBarInfo"
@@ -99,7 +137,11 @@ Model {
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "38"
+<<<<<<< .merge_file_a24308
 	  Extents		  [1371.0, 569.0]
+=======
+	  Extents		  [1643.0, 693.0]
+>>>>>>> .merge_file_a10056
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -114,6 +156,7 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
+<<<<<<< .merge_file_a24308
 	  Width			  [512]
 	  Height		  [384]
 	}
@@ -125,12 +168,29 @@ Model {
 	"//wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAACR/////wAAAAAAAAAA/////wEA"
 	"AAEE/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGV/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/"
 	"////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPG/////wAAAAAAAAAA/////wEAAAP+/////wAAAAAAAAAA/////wAAAAAA/////w"
+=======
+	  Width			  [426]
+	  Height		  [320]
+	}
+	WindowState		"AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAAAAAAAAA+wA"
+	"AABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQA"
+	"LwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAACSAP///wAAAAEAAAAAAAAAAPwCAAAAAfsAAABUAEcATABVA"
+	"EUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZQBjAHQAbwByAAAAAAD/////AA"
+	"AAPQD///8AAAajAAADAwAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/////wEAAAAA/////wAAAAAAAAAA///"
+	"//wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAACp/////wAAAAAAAAAA/////wEA"
+	"AAEu/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAHX/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/"
+	"////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAR7/////wAAAAAAAAAA/////wEAAAS8/////wAAAAAAAAAA/////wAAAAAA/////w"
+>>>>>>> .merge_file_a10056
 	"AAAAAAAAAA"
       }
       Object {
 	$ObjectID		7
 	IsActive		[1]
+<<<<<<< .merge_file_a24308
 	Location		[-75.0, 40.0, 1554.0, 756.0]
+=======
+	Location		[-7.0, -7.0, 1721.0, 975.0]
+>>>>>>> .merge_file_a10056
 	Object {
 	  $PropName		  "ModelBrowserInfo"
 	  $ObjectID		  8
@@ -139,7 +199,11 @@ Model {
 	  DockPosition		  "Left"
 	  Width			  [50]
 	  Height		  [50]
+<<<<<<< .merge_file_a24308
 	  Filter		  [8]
+=======
+	  Filter		  [9]
+>>>>>>> .merge_file_a10056
 	}
 	Object {
 	  $PropName		  "ExplorerBarInfo"
@@ -152,11 +216,19 @@ Model {
 	  $ObjectID		  10
 	  $ClassName		  "Simulink.EditorInfo"
 	  IsActive		  [1]
+<<<<<<< .merge_file_a24308
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1879.0, 730.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
+=======
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "230"
+	  Extents		  [2504.0, 1214.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-5.33749982714653, -108.64999815821648]
+>>>>>>> .merge_file_a10056
 	}
 	Object {
 	  $PropName		  "DockComponentsInfo"
@@ -169,6 +241,7 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Right"
+<<<<<<< .merge_file_a24308
 	  Width			  [512]
 	  Height		  [384]
 	}
@@ -180,6 +253,19 @@ Model {
 	"//wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAACR/////wAAAAAAAAAA/////wEA"
 	"AAEE/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGV/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/"
 	"////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPG/////wAAAAAAAAAA/////wEAAAP+/////wAAAAAAAAAA/////wAAAAAA/////w"
+=======
+	  Width			  [426]
+	  Height		  [320]
+	}
+	WindowState		"AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAAAAAAAAA+wA"
+	"AABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQA"
+	"LwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAACSAP///wAAAAEAAAAAAAAAAPwCAAAAAfsAAABUAEcATABVA"
+	"EUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZQBjAHQAbwByAAAAAAD/////AA"
+	"AAPQD///8AAAoAAAAFDAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/////wEAAAAA/////wAAAAAAAAAA///"
+	"//wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAACp/////wAAAAAAAAAA/////wEA"
+	"AAEu/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAHX/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/"
+	"////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAR7/////wAAAAAAAAAA/////wEAAAS8/////wAAAAAAAAAA/////wAAAAAA/////w"
+>>>>>>> .merge_file_a10056
 	"AAAAAAAAAA"
       }
       PropName		      "WindowsInfo"
@@ -190,12 +276,20 @@ Model {
   Creator		  "cjones"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
+<<<<<<< .merge_file_a24308
   LastModifiedBy	  "Camilla"
   ModifiedDateFormat	  "%<Auto>"
   LastModifiedDate	  "Thu May 31 15:54:15 2018"
   RTWModifiedTimeStamp	  449682852
   ModelVersionFormat	  "1.%<AutoIncrement:193>"
   ConfigurationManager	  "none"
+=======
+  LastModifiedBy	  "Etienne Clément"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu May 31 16:37:23 2018"
+  RTWModifiedTimeStamp	  449685433
+  ModelVersionFormat	  "1.%<AutoIncrement:194>"
+>>>>>>> .merge_file_a10056
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -223,6 +317,7 @@ Model {
   BlockNameDataTip	  off
   BlockParametersDataTip  off
   BlockDescriptionStringDataTip	off
+  BlockVariantConditionDataTip off
   ToolBar		  on
   StatusBar		  on
   BrowserShowLibraryLinks off
@@ -289,7 +384,11 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      13
+<<<<<<< .merge_file_a24308
       Version		      "1.17.0"
+=======
+      Version		      "1.17.1"
+>>>>>>> .merge_file_a10056
       DisabledProps	      []
       Description	      ""
       Array {
@@ -297,7 +396,11 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  14
+<<<<<<< .merge_file_a24308
 	  Version		  "1.17.0"
+=======
+	  Version		  "1.17.1"
+>>>>>>> .merge_file_a10056
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
@@ -305,7 +408,6 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
-	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -317,7 +419,10 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  EnableMultiTasking	  on
+<<<<<<< .merge_file_a24308
 	  EnableConcurrentExecution off
+=======
+>>>>>>> .merge_file_a10056
 	  ConcurrentTasks	  off
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
@@ -334,10 +439,18 @@ Model {
 	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
 	  SampleTimeProperty	  []
+<<<<<<< .merge_file_a24308
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  15
 	  Version		  "1.17.0"
+=======
+	  DecoupledContinuousIntegration off
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  15
+	  Version		  "1.17.1"
+>>>>>>> .merge_file_a10056
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "1"
@@ -378,7 +491,11 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  16
+<<<<<<< .merge_file_a24308
 	  Version		  "1.17.0"
+=======
+	  Version		  "1.17.1"
+>>>>>>> .merge_file_a10056
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -436,10 +553,18 @@ Model {
 	  OptimizeBlockOrder	  "off"
 	  OptimizeDataStoreBuffers on
 	  BusAssignmentInplaceUpdate on
+<<<<<<< .merge_file_a24308
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  17
 	  Version		  "1.17.0"
+=======
+	  DifferentSizesBufferReuse off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  17
+	  Version		  "1.17.1"
+>>>>>>> .merge_file_a10056
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -478,6 +603,7 @@ Model {
 	  MultiTaskRateTransMsg	  "error"
 	  SingleTaskRateTransMsg  "none"
 	  TasksWithSamePriorityMsg "warning"
+	  ExportedTasksRateTransMsg "none"
 	  SigSpecEnsureSampleTimeMsg "warning"
 	  CheckMatrixSingularityMsg "none"
 	  IntegerOverflowMsg	  "warning"
@@ -519,6 +645,7 @@ Model {
 	  StateNameClashWarn	  "warning"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
+	  ChecksumConsistencyForSSReuse	"none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -545,11 +672,21 @@ Model {
 	  AllowedUnitSystems	  "all"
 	  UnitsInconsistencyMsg	  "warning"
 	  AllowAutomaticUnitConversions	on
+<<<<<<< .merge_file_a24308
+=======
+	  RCSCRenamedMsg	  "warning"
+	  RCSCObservableMsg	  "warning"
+	  ForceCombineOutputUpdateInSim	off
+>>>>>>> .merge_file_a10056
 	  UnitDatabase		  ""
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  18
+<<<<<<< .merge_file_a24308
 	  Version		  "1.17.0"
+=======
+	  Version		  "1.17.1"
+>>>>>>> .merge_file_a10056
 	  DisabledProps		  []
 	  Description		  ""
 	  ProdBitPerChar	  8
@@ -597,7 +734,11 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  19
+<<<<<<< .merge_file_a24308
 	  Version		  "1.17.0"
+=======
+	  Version		  "1.17.1"
+>>>>>>> .merge_file_a10056
 	  DisabledProps		  []
 	  Description		  ""
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
@@ -616,7 +757,11 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  20
+<<<<<<< .merge_file_a24308
 	  Version		  "1.17.0"
+=======
+	  Version		  "1.17.1"
+>>>>>>> .merge_file_a10056
 	  DisabledProps		  []
 	  Description		  ""
 	  SimCustomSourceCode	  ""
@@ -646,7 +791,11 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  21
+<<<<<<< .merge_file_a24308
 	  Version		  "1.17.0"
+=======
+	  Version		  "1.17.1"
+>>>>>>> .merge_file_a10056
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    13
@@ -694,6 +843,10 @@ Model {
 	  CustomLibrary		  ""
 	  CustomDefine		  ""
 	  CustomLAPACKCallback	  ""
+<<<<<<< .merge_file_a24308
+=======
+	  CustomFFTCallback	  ""
+>>>>>>> .merge_file_a10056
 	  CustomInitializer	  ""
 	  CustomTerminator	  ""
 	  Toolchain		  "Automatically locate an installed toolchain"
@@ -729,7 +882,11 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      22
+<<<<<<< .merge_file_a24308
 	      Version		      "1.17.0"
+=======
+	      Version		      "1.17.1"
+>>>>>>> .merge_file_a10056
 	      Array {
 		Type			"Cell"
 		Dimension		27
@@ -769,18 +926,20 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
-	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
+<<<<<<< .merge_file_a24308
 	      IncAutoGenComments      off
+=======
+>>>>>>> .merge_file_a10056
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
-	      IncDataTypeInIds	      off
 	      MangleLength	      1
+	      SharedChecksumLength    8
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
@@ -804,6 +963,7 @@ Model {
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
+	      StateflowObjectComments on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
 	      InternalIdentifierFile  ""
@@ -816,7 +976,11 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      23
+<<<<<<< .merge_file_a24308
 	      Version		      "1.17.0"
+=======
+	      Version		      "1.17.1"
+>>>>>>> .merge_file_a10056
 	      Array {
 		Type			"Cell"
 		Dimension		18
@@ -864,7 +1028,6 @@ Model {
 	      CombineOutputUpdateFcns off
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
-	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -894,6 +1057,12 @@ Model {
 	      CoderGroups	      []
 	      AccessMethods	      []
 	      LookupTableObjectStructAxisOrder "1,2,3,4,..."
+<<<<<<< .merge_file_a24308
+=======
+	      LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
+	      LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
+	      ArrayLayout	      "Column-major"
+>>>>>>> .merge_file_a10056
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -915,7 +1084,11 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  24
+<<<<<<< .merge_file_a24308
 	  Version		  "1.17.0"
+=======
+	  Version		  "1.17.1"
+>>>>>>> .merge_file_a10056
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -965,6 +1138,7 @@ Model {
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
     $ObjectID		    13
+<<<<<<< .merge_file_a24308
   }
   Object {
     $PropName		    "DataTransfer"
@@ -976,6 +1150,19 @@ Model {
     DefaultExtrapolationMethodBetweenContTasks "None"
     AutoInsertRateTranBlk   [0]
   }
+=======
+  }
+  Object {
+    $PropName		    "DataTransfer"
+    $ObjectID		    25
+    $ClassName		    "Simulink.GlobalDataTransfer"
+    DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
+    DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
+    DefaultTransitionBetweenContTasks "Ensure deterministic transfer (minimum delay)"
+    DefaultExtrapolationMethodBetweenContTasks "None"
+    AutoInsertRateTranBlk   [0]
+  }
+>>>>>>> .merge_file_a10056
   ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
@@ -1001,7 +1188,12 @@ Model {
     FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
+    MarkupType		    "model"
     UseDisplayTextAsClickCallback off
+    AnnotationType	    "note_annotation"
+    FixedHeight		    off
+    FixedWidth		    off
+    Interpreter		    "off"
   }
   LineDefaults {
     FontName		    "Helvetica"
@@ -1059,7 +1251,7 @@ Model {
       B			      "1"
       C			      "1"
       D			      "1"
-      X0		      "0"
+      InitialCondition	      "0"
       SampleTime	      "1"
       StateMustResolveToSignalObject off
       RTWStateStorageClass    "Auto"
@@ -1071,6 +1263,14 @@ Model {
       Decimation	      "10"
       Floating		      off
       Lockdown		      off
+<<<<<<< .merge_file_a24308
+=======
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
+>>>>>>> .merge_file_a10056
       SampleTime	      "-1"
     }
     Block {
@@ -1134,10 +1334,29 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+<<<<<<< .merge_file_a24308
       BlockType		      ManualSwitch
       CurrentSetting	      "1"
       varsize		      off
       SampleTime	      "-1"
+=======
+      BlockType		      MultiPortSwitch
+      DataPortOrder	      "One-based contiguous"
+      Inputs		      "3"
+      DataPortIndices	      "{1,2,3}"
+      DataPortForDefault      "Last data port"
+      DiagnosticForDefault    "Error"
+      zeroidx		      off
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+      AllowDiffInputSizes     off
+>>>>>>> .merge_file_a10056
     }
     Block {
       BlockType		      Mux
@@ -1166,6 +1385,12 @@ Model {
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
       MustResolveToSignalObject	off
+<<<<<<< .merge_file_a24308
+=======
+      OutputWhenUnConnected   off
+      OutputWhenUnconnectedValue "0"
+      VectorParamsAs1DForOutWhenUnconnected off
+>>>>>>> .merge_file_a10056
     }
     Block {
       BlockType		      S-Function
@@ -1209,10 +1434,18 @@ Model {
       MaskHideContents	      off
       SFBlockType	      "NONE"
       GeneratePreprocessorConditionals off
+<<<<<<< .merge_file_a24308
+=======
+      AllowZeroVariantControls off
+>>>>>>> .merge_file_a10056
       PropagateVariantConditions off
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
+<<<<<<< .merge_file_a24308
+=======
+      IsObserver	      off
+>>>>>>> .merge_file_a10056
     }
     Block {
       BlockType		      Sum
@@ -1267,8 +1500,13 @@ Model {
   }
   System {
     Name		    "simulation2"
+<<<<<<< .merge_file_a24308
     Location		    [-75, 40, 1479, 796]
     Open		    on
+=======
+    Location		    [-7, -7, 1714, 968]
+    Open		    off
+>>>>>>> .merge_file_a10056
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1282,7 +1520,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "228"
+    SIDHighWatermark	    "241"
     Block {
       BlockType		      Clock
       Name		      "Clock"
@@ -1298,6 +1536,13 @@ Model {
       ZOrder		      -4
       ForegroundColor	      "red"
       Value		      "us"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant1"
+      SID		      "237"
+      Position		      [185, 95, 215, 125]
+      ZOrder		      4
     }
     Block {
       BlockType		      Demux
@@ -1488,7 +1733,11 @@ Model {
       Ports		      [1, 1]
       Position		      [610, 215, 645, 245]
       ZOrder		      -11
+<<<<<<< .merge_file_a24308
       LibraryVersion	      "1.391"
+=======
+      LibraryVersion	      "1.401"
+>>>>>>> .merge_file_a10056
       DisableCoverage	      on
       SourceBlock	      "simulink/Discrete/First-Order\nHold"
       SourceType	      "First-Order Hold"
@@ -1511,11 +1760,22 @@ Model {
       SampleTime	      "sys.Ts"
     }
     Block {
+<<<<<<< .merge_file_a24308
       BlockType		      ManualSwitch
       Name		      "Manual Switch"
       SID		      "223"
       Position		      [215, 217, 245, 253]
       ZOrder		      -13
+=======
+      BlockType		      MultiPortSwitch
+      Name		      "Multiport\nSwitch"
+      SID		      "229"
+      Ports		      [4, 1]
+      Position		      [215, 206, 250, 259]
+      ZOrder		      2
+      InputSameDT	      off
+      SaturateOnIntegerOverflow	off
+>>>>>>> .merge_file_a10056
     }
     Block {
       BlockType		      Mux
@@ -1860,6 +2120,167 @@ Model {
       VariableName	      "d1"
       MaxDataPoints	      "inf"
       SampleTime	      "0.1"
+<<<<<<< .merge_file_a24308
+=======
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "eight form\n"
+      SID		      "230"
+      Ports		      [0, 1]
+      Position		      [110, 313, 145, 367]
+      ZOrder		      3
+      RequestExecContextInheritance off
+      Variant		      off
+      System {
+	Name			"eight form\n"
+	Location		[-7, -7, 1714, 968]
+	Open			on
+	PortBlocksUseCompactNotation off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux2"
+	  SID			  "231"
+	  Ports			  [4, 1]
+	  Position		  [335, 78, 340, 152]
+	  ZOrder		  -1
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "241"
+	  Ports			  [0, 1]
+	  Position		  [55, 50, 85, 80]
+	  ZOrder		  4
+	  LibraryVersion	  "1.401"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  ContentPreviewEnabled	  off
+	  slope			  "1"
+	  start			  "0"
+	  X0			  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step5"
+	  SID			  "234"
+	  Position		  [190, 255, 220, 285]
+	  ZOrder		  -4
+	  ShowName		  off
+	  Time			  "0"
+	  After			  "pi"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step6"
+	  SID			  "235"
+	  Position		  [190, 190, 220, 220]
+	  ZOrder		  -5
+	  ShowName		  off
+	  Time			  "4"
+	  After			  "2"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "x_coord\n"
+	  SID			  "239"
+	  Position		  [175, 20, 235, 50]
+	  ZOrder		  2
+	  Expr			  "(sqrt(2)*cos(u))/(sin(u)*sin(u) + 1)"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "y_coord\n"
+	  SID			  "240"
+	  Position		  [175, 75, 235, 105]
+	  ZOrder		  3
+	  Expr			  "(sqrt(2)*cos(u)*sin(u))/(sin(u)*sin(u) + 1)"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ref"
+	  SID			  "236"
+	  Position		  [525, 108, 555, 122]
+	  ZOrder		  -6
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "Step6"
+	  SrcPort		  1
+	  Points		  [2, 0; 0, -80]
+	  DstBlock		  "Mux2"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Step5"
+	  SrcPort		  1
+	  Points		  [9, 0; 0, -125]
+	  DstBlock		  "Mux2"
+	  DstPort		  4
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Mux2"
+	  SrcPort		  1
+	  DstBlock		  "ref"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [47, 0]
+	  Branch {
+	    ZOrder		    10
+	    Points		    [0, 25]
+	    DstBlock		    "y_coord\n"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    9
+	    Points		    [3, 0; 0, -30]
+	    DstBlock		    "x_coord\n"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "y_coord\n"
+	  SrcPort		  1
+	  Points		  [45, 0; 0, 15]
+	  DstBlock		  "Mux2"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "x_coord\n"
+	  SrcPort		  1
+	  Points		  [45, 0; 0, 50]
+	  DstBlock		  "Mux2"
+	  DstPort		  1
+	}
+      }
+>>>>>>> .merge_file_a10056
     }
     Block {
       BlockType		      SubSystem
@@ -1882,7 +2303,11 @@ Model {
 	  Type			  "checkbox"
 	  Name			  "dist"
 	  Prompt		  "disturbance on/off"
+<<<<<<< .merge_file_a24308
 	  Value			  "off"
+=======
+	  Value			  "on"
+>>>>>>> .merge_file_a10056
 	}
       }
       System {
@@ -3533,32 +3958,67 @@ Model {
       DstPort		      2
     }
     Line {
+<<<<<<< .merge_file_a24308
       ZOrder		      52
       SrcBlock		      "Manual Switch"
+=======
+      ZOrder		      55
+      SrcBlock		      "reference 1"
+      SrcPort		      1
+      Points		      [10, 0; 0, 60]
+      DstBlock		      "Multiport\nSwitch"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      56
+      SrcBlock		      "Multiport\nSwitch"
+>>>>>>> .merge_file_a10056
       SrcPort		      1
       DstBlock		      "Reference filter"
       DstPort		      1
     }
     Line {
+<<<<<<< .merge_file_a24308
       ZOrder		      53
+=======
+      ZOrder		      57
+>>>>>>> .merge_file_a10056
       SrcBlock		      "reference 2"
       SrcPort		      1
-      DstBlock		      "Manual Switch"
-      DstPort		      2
+      Points		      [30, 0; 0, -5]
+      DstBlock		      "Multiport\nSwitch"
+      DstPort		      3
     }
     Line {
+<<<<<<< .merge_file_a24308
       ZOrder		      54
       SrcBlock		      "reference 1"
+=======
+      ZOrder		      58
+      SrcBlock		      "eight form\n"
+>>>>>>> .merge_file_a10056
       SrcPort		      1
-      Points		      [10, 0; 0, 60]
-      DstBlock		      "Manual Switch"
+      Points		      [32, 0; 0, -85]
+      DstBlock		      "Multiport\nSwitch"
+      DstPort		      4
+    }
+    Line {
+      ZOrder		      59
+      SrcBlock		      "Constant1"
+      SrcPort		      1
+      Points		      [14, 0; 0, 62; -54, 0; 0, 38]
+      DstBlock		      "Multiport\nSwitch"
       DstPort		      1
     }
   }
 }
 #Finite State Machines
 #
+<<<<<<< .merge_file_a24308
 #   Stateflow 80000011
+=======
+#   Stateflow 80000012
+>>>>>>> .merge_file_a10056
 #
 #
 Stateflow {
@@ -3567,14 +4027,22 @@ Stateflow {
     name		    "simulation2"
     created		    "06-Mar-2012 20:48:52"
     isLibrary		    0
+<<<<<<< .merge_file_a24308
     sfVersion		    80000011
+=======
+    sfVersion		    80000012
+>>>>>>> .merge_file_a10056
     firstTarget		    42
   }
   chart {
     id			    2
     machine		    1
     name		    "quadRotor/Forces"
+<<<<<<< .merge_file_a24308
     windowPosition	    [521 265 213 385]
+=======
+    windowPosition	    [521 361 213 385]
+>>>>>>> .merge_file_a10056
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.001577287066246]
     treeNode		    [0 3 0 0]
@@ -3751,7 +4219,11 @@ Stateflow {
     id			    11
     machine		    1
     name		    "quadRotor/Moments"
+<<<<<<< .merge_file_a24308
     windowPosition	    [521 265 213 385]
+=======
+    windowPosition	    [521 361 213 385]
+>>>>>>> .merge_file_a10056
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.001577287066246]
     treeNode		    [0 12 0 0]
@@ -3926,7 +4398,11 @@ Stateflow {
     id			    20
     machine		    1
     name		    "quadRotor/input disturbance"
+<<<<<<< .merge_file_a24308
     windowPosition	    [541 285 213 385]
+=======
+    windowPosition	    [541 381 213 385]
+>>>>>>> .merge_file_a10056
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 2560 1440 1]
     treeNode		    [0 21 0 0]
@@ -4075,7 +4551,11 @@ Stateflow {
     id			    28
     machine		    1
     name		    "quadRotor/Force dist"
+<<<<<<< .merge_file_a24308
     windowPosition	    [561 305 213 385]
+=======
+    windowPosition	    [561 401 213 385]
+>>>>>>> .merge_file_a10056
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 2560 1440 1]
     treeNode		    [0 29 0 0]
@@ -4202,7 +4682,11 @@ Stateflow {
     id			    35
     machine		    1
     name		    "quadRotor/Moment dist"
+<<<<<<< .merge_file_a24308
     windowPosition	    [581 325 213 385]
+=======
+    windowPosition	    [581 421 213 385]
+>>>>>>> .merge_file_a10056
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 2560 1440 1]
     treeNode		    [0 36 0 0]
